@@ -46,7 +46,7 @@ class NetpeakTest(unittest.TestCase):
         time.sleep(1)
         btnDis.click()
         bulka = EC.visibility_of_element_located((By.XPATH, '/md-toast/div')) # Находим табличку "Неправильный логин или пароль"
-        logRed = driver.find_elements_by_class_name('input-container md-input-invalid') #Находим поля с красной подсвеченные красным цветом
+        logRed = driver.find_elements_by_class_name('input-container md-input-invalid') #Находим поля подсвеченные красным цветом
         time.sleep(60)
 
     def tearDown(self):
