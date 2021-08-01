@@ -41,7 +41,7 @@ class NetpeakTest(unittest.TestCase):
         btnLog('login', 'Boba')
         btnLog('password', 'Aboba')
         btnDis = driver.find_element_by_xpath('//*[@id="loginForm"]/div[5]/button/span')
-        btnDisPush = EC.element_to_be_clickable(btnDis)
+        btnDisPush = EC.element_to_be_clickable(btnDis) #Проверяем можно ли нажать на кнопку "Вход".
         btnAgree = driver.find_element_by_xpath('//*[@id="loginForm"]/div[4]/div/md-checkbox/div[1]').click()
         time.sleep(1)
         btnDis.click()
