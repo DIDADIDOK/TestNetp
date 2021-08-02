@@ -34,19 +34,20 @@ class NetpeakTest(unittest.TestCase):
         ).click()
         pool(1)
         btnGreen = driver.find_element_by_link_text('Я хочу работать в Netpeak')
-        btnGreenPush = EC.element_to_be_clickable(btnGreen) #Проверяем можно ли нажать на кнопку "Я хочу работать в Netpeak".
+        btnGreenPush = EC.element_to_be_clickable(btnGreen)
         pool(0)
         driver.find_element_by_class_name('custom-link').click()
         pool(2)
         btnLog('login', 'Boba')
         btnLog('password', 'Aboba')
         btnDis = driver.find_element_by_xpath('//*[@id="loginForm"]/div[5]/button/span')
-        btnDisPush = EC.element_to_be_clickable(btnDis) #Проверяем можно ли нажать на кнопку "Вход".
+        btnDisPush = EC.element_to_be_clickable(btnDis)
         btnAgree = driver.find_element_by_xpath('//*[@id="loginForm"]/div[4]/div/md-checkbox/div[1]').click()
         time.sleep(1)
         btnDis.click()
-        bulka = EC.visibility_of_element_located((By.XPATH, '/md-toast/div')) # Находим табличку "Неправильный логин или пароль"
-        logRed = driver.find_elements_by_class_name('input-container md-input-invalid') #Находим поля подсвеченные красным цветом
+        time.sleep(1)
+        bulka = EC.visibility_of_element_located((By.XPATH, '/md-toast/div'))
+        logRed = driver.find_elements_by_class_name('input-container md-input-invalid')
         time.sleep(60)
 
     def tearDown(self):
