@@ -12,6 +12,7 @@ class NetpeakTest(unittest.TestCase):
 
     def testTask(self):
         driver = self.driver
+        wait = WebDriverWait(driver,10)
         driver.maximize_window()
         driver.get("https://netpeak.ua/");
 
@@ -28,7 +29,6 @@ class NetpeakTest(unittest.TestCase):
         time.sleep(1)
         driver.find_element_by_link_text('Команда').click()
         time.sleep(1)
-        wait = WebDriverWait(driver,10)
         wait.until(
             EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, 'Стать частью команды'))
         ).click()
@@ -43,7 +43,6 @@ class NetpeakTest(unittest.TestCase):
         btnDis = driver.find_element_by_xpath('//*[@id="loginForm"]/div[5]/button/span')
         btnDisPush = EC.element_to_be_clickable(btnDis)
         btnAgree = driver.find_element_by_xpath('//*[@id="loginForm"]/div[4]/div/md-checkbox/div[1]').click()
-        time.sleep(1)
         btnDis.click()
         time.sleep(1)
         bulka = EC.visibility_of_element_located((By.XPATH, '/md-toast/div'))
